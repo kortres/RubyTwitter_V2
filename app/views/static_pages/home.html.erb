@@ -7,7 +7,7 @@
     sample application.
   </h2>
   <% if logged_in? %>
-    <li> "You are already log in" </li>
+    <p> "You are already log in" </p>
   <% else %>
     <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
   <% end %>
