@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  resources :posts
   get 'sessions/new'
   root 'static_pages#home'
   get 'static_pages/help'
+  get 'newpost' => 'posts#new'
+  get 'posts' => 'posts#posts'
   get 'help' => 'static_pages#help'
   get 'signup'  => 'users#new'
   get    'login'   => 'sessions#new'
