@@ -3,6 +3,11 @@ class PostsController < ApplicationController
   before_action :admin_user,     only: :destroy
   before_action :set_post, only: %i[ show edit update destroy ]
 
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
+
   def admin_user
     redirect_to(root_url) unless current_user.admin?
   end

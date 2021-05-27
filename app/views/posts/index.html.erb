@@ -18,7 +18,12 @@
         <td><%= post.post %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% user = current_user %>
+          <% if current_user.admin? %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+          </td>
       </tr>
     <% end %>
   </tbody>
